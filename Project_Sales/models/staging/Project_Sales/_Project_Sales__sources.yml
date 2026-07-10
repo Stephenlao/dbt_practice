@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: Project_Sales
+    database: dbt_practice_dev 
+    schema: source  
+    tables:
+      - name: colors
+    
+      - name: customer_master
+
+
+      - name: invoice_detail
+
+      - name: invoice_header
+
+
+      - name: product_master
+
+
+      - name: sales_hierarchy
+
+
+      - name: sales_hierarchy_override
+
+      - name: ship_to_master
+
+      - name: sizes
+
+      - name: styles
+
+      - name: warehouses
+   
+
+
