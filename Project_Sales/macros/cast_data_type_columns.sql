@@ -1,5 +1,5 @@
-{% macro cast_data_type_columns(column_type_dict) %}
-    {% for col, target_type in column_type_dict.items() %}
-        cast(`{{ col }}` as {{ target_type }}) as {{ col }},
-    {% endfor %}
+{% macro cast_data_type_columns(column_name, target_type) %}
+{% set quoted_column = adapter.quote(column_name) if ' ' in column_name else column_name %}
+
+    try_cast({{ quoted_column }} as {{ target_type }})
 {% endmacro %}

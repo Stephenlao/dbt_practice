@@ -1,17 +1,11 @@
-{# {{ clean_and_cast_stg_columns('Project_Sales', 'colors') }} #}
-
-
-
-{% set source_table = source('Project_Sales', 'colors') %}
+with raw_data as 
+(
+    select * from {{ source('Project_Sales', 'colors') }}
+)
 
 select
-    {{ rename_columns_to_snake_case(source_table) }}
-    {{ cast_data_type_columns({
-        'Color ID': 'int',
-        'Color Description': 'string',
-        'Color Short Name': 'string',
-    }) }}
-    
-    {{ solving_null_columns(['Color ID', 'Color Description', 'Color Short Name']) }}
-
-from {{ source('Project_Sales', 'colors') }}
+    -- We tell it to look for values like 1/1/9999. If it fails or is null, it goes to '9999-01-01'
+    {{ clean_column('Color ID', 'int') }},
+    {{ clean_column('Color Description', 'string') }},
+    {{ clean_column('Color Short Name', 'string') }}
+from raw_data

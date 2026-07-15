@@ -1,5 +1,13 @@
-{# {{ clean_and_cast_stg_columns('Project_Sales', 'sales_hierarchy') }} #}
+with raw_data as
+(
+    select * from {{ source('Project_Sales', 'sales_hierarchy') }}
+)
 
 
+select
+    {{ clean_column('Salesperson ID', 'int') }},
+    {{ clean_column('Salesperson Name', 'string') }},
+    {{ clean_column('VP Sales', 'string') }},
+    {{ clean_column('Regional Director', 'string') }}
 
-select * from {{ source('Project_Sales', 'sales_hierarchy') }}
+from raw_data

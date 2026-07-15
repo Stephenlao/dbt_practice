@@ -61,7 +61,7 @@ models:
       - check_unique_pk_columns:
           column_list: ['Style ID']
 
-  - name: stg_Project_Sales__warehouse      # Tên model số 1 của bạn
+  - name: stg_Project_Sales__warehouse     # Tên model số 1 của bạn
     tests:
       - all_columns_null
       - check_unique_pk_columns:
