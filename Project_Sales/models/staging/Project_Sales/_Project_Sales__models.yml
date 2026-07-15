@@ -2,70 +2,33 @@ version: 2
 
 models:
   - name: stg_Project_Sales__colors      # Tên model số 1 của bạn
-    tests:
-      - all_columns_null
-      - check_unique_pk_columns:
-          column_list: ['Color ID']
-
+ 
   - name: stg_Project_Sales__customer_master      # Tên model số 1 của bạn
-    tests:
-      - all_columns_null
-      - check_unique_pk_columns:
-          column_list: ['Customer ID']
-  
+
   - name: stg_Project_Sales__invoice_detail      # Tên model số 1 của bạn
-    tests:
-      - all_columns_null
-      - check_unique_pk_columns:
-          column_list: ['Invoice Number', 'Line Number', 'Product ID']
 
-  
+
   - name: stg_Project_Sales__invoice_header      # Tên model số 1 của bạn
-    tests:
-      - all_columns_null
-      - check_unique_pk_columns:
-          column_list: ['Invoice Number']
-  
-  - name: stg_Project_Sales__product_master      # Tên model số 1 của bạn
-    tests:
-      - all_columns_null
-      - check_unique_pk_columns:
-          column_list: ['Product ID']
-  
-  - name: stg_Project_Sales__sales_hierarchy      # Tên model số 1 của bạn
-    tests:
-      - all_columns_null
-      - check_unique_pk_columns:
-          column_list: ['Salesperson ID']
 
+
+  - name: stg_Project_Sales__product_master      # Tên model số 1 của bạn
+
+
+  - name: stg_Project_Sales__sales_hierarchy      # Tên model số 1 của bạn
+ 
   - name: stg_Project_Sales__sales_hierarchy_override      # Tên model số 1 của bạn
-    tests:
-      - all_columns_null
-  
+
+
   - name: stg_Project_Sales__ship_to_master      # Tên model số 1 của bạn
-    tests:
-      - all_columns_null
-      - check_unique_pk_columns:
-          column_list: ['Ship To ID']
-  
+
 
   - name: stg_Project_Sales__sizes      # Tên model số 1 của bạn
-    tests:
-      - all_columns_null
-      - check_unique_pk_columns:
-          column_list: ['Size ID']
 
   - name: stg_Project_Sales__styles      # Tên model số 1 của bạn
-    tests:
-      - all_columns_null
-      - check_unique_pk_columns:
-          column_list: ['Style ID']
+
 
   - name: stg_Project_Sales__warehouse     # Tên model số 1 của bạn
-    tests:
-      - all_columns_null
-      - check_unique_pk_columns:
-          column_list: ['Warehouse ID']
+
   
       
   # ... Bạn có 100 model thì cứ liệt kê tên model vào đây, cực kỳ nhanh gọn.

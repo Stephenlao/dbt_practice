@@ -6,16 +6,112 @@ sources:
     schema: source  
     tables:
       - name: colors
+        tests:
+          - all_columns_null:
+              arguments:
+                exclude_column_list: []
+          - check_unique_pk_columns:
+              arguments:
+                column_list: ['Color ID'] # Replace with your actual composite key columns
+      
+
       - name: customer_master
+        tests:
+            - all_columns_null:
+                arguments:
+                  exclude_column_list: []
+            - check_unique_pk_columns:
+                arguments:
+                  column_list: ['Customer ID'] # Replace with your actual composite key columns
+     
+
       - name: invoice_detail
+        tests:
+            - all_columns_null:
+                arguments:
+                  exclude_column_list: []
+            - check_unique_pk_columns:
+                arguments:
+                  column_list: ['Invoice Number', 'Line Number', 'Product ID'] # Replace with your actual composite key columns
+
+
       - name: invoice_header
+        tests:
+            - all_columns_null:
+                arguments:
+                  exclude_column_list: []
+            - check_unique_pk_columns:
+                arguments:
+                  column_list: ['Invoice Number']
+
       - name: product_master
+        tests:
+            - all_columns_null:
+                arguments:
+                  exclude_column_list: []
+            - check_unique_pk_columns:
+                arguments:
+                  column_list: ['Product ID']
+
+
+
       - name: sales_hierarchy
+        tests:
+            - all_columns_null:
+                arguments:
+                  exclude_column_list: []
+            - check_unique_pk_columns:
+                arguments:
+                  column_list: ['Salesperson ID']
+
+
       - name: sales_hierarchy_override
+        tests:
+            - all_columns_null:
+                arguments:
+                  exclude_column_list: []
+    
+ 
+        
+
       - name: ship_to_master
+        tests:
+            - all_columns_null:
+                arguments:
+                  exclude_column_list: []
+            - check_unique_pk_columns:
+                arguments:
+                  column_list: ['Ship To ID']
+ 
+
       - name: sizes
+        tests:
+            - all_columns_null:
+                arguments:
+                  exclude_column_list: []
+            - check_unique_pk_columns:
+                arguments:
+                  column_list: ['Size ID']
+  
+
       - name: styles
+        tests:
+            - all_columns_null:
+                arguments:
+                  exclude_column_list: []
+            - check_unique_pk_columns:
+                arguments:
+                  column_list: ['Style ID']
+ 
+
       - name: warehouses
+        tests:
+            - all_columns_null:
+                arguments:
+                  exclude_column_list: []
+            - check_unique_pk_columns:
+                arguments:
+                  column_list: ['Warehouse ID']
    
 
 
