@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_colors      # Tên model số 1 của bạn
+ 
+  - name: stg_customer_master      # Tên model số 1 của bạn
+
+  - name: stg_invoice_detail      # Tên model số 1 của bạn
+
+
+  - name: stg_invoice_header      # Tên model số 1 của bạn
+
+
+  - name: stg_product_master      # Tên model số 1 của bạn
+
+
+  - name: stg_sales_hierarchy      # Tên model số 1 của bạn
+ 
+  - name: stg_sales_hierarchy_override      # Tên model số 1 của bạn
+
+
+  - name: stg_ship_to_master      # Tên model số 1 của bạn
+
+
+  - name: stg_sizes      # Tên model số 1 của bạn
+
+  - name: stg_styles      # Tên model số 1 của bạn
+
+
+  - name: stg_warehouse     # Tên model số 1 của bạn
+
+  
+      
+  # ... Bạn có 100 model thì cứ liệt kê tên model vào đây, cực kỳ nhanh gọn.
