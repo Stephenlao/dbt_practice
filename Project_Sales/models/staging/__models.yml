@@ -1,33 +1,33 @@
 version: 2
 
 models:
-  - name: stg_colors      # Tên model số 1 của bạn
+  - name: stg__colors      # Tên model số 1 của bạn
  
-  - name: stg_customer_master      # Tên model số 1 của bạn
+  - name: stg__customer_master      # Tên model số 1 của bạn
 
-  - name: stg_invoice_detail      # Tên model số 1 của bạn
-
-
-  - name: stg_invoice_header      # Tên model số 1 của bạn
+  - name: stg__invoice_detail      # Tên model số 1 của bạn
 
 
-  - name: stg_product_master      # Tên model số 1 của bạn
+  - name: stg__invoice_header      # Tên model số 1 của bạn
 
 
-  - name: stg_sales_hierarchy      # Tên model số 1 của bạn
+  - name: stg__product_master      # Tên model số 1 của bạn
+
+
+  - name: stg__sales_hierarchy      # Tên model số 1 của bạn
  
-  - name: stg_sales_hierarchy_override      # Tên model số 1 của bạn
+  - name: stg__sales_hierarchy_override      # Tên model số 1 của bạn
 
 
-  - name: stg_ship_to_master      # Tên model số 1 của bạn
+  - name: stg__ship_to_master      # Tên model số 1 của bạn
 
 
-  - name: stg_sizes      # Tên model số 1 của bạn
+  - name: stg__sizes      # Tên model số 1 của bạn
 
-  - name: stg_styles      # Tên model số 1 của bạn
+  - name: stg__styles      # Tên model số 1 của bạn
 
 
-  - name: stg_warehouse     # Tên model số 1 của bạn
+  - name: stg__warehouse     # Tên model số 1 của bạn
 
   
       

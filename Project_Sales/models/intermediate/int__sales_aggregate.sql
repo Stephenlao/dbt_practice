@@ -3,11 +3,11 @@
 ) }}
 
 with header as (
-    select * from {{ ref('stg_invoice_header') }}
+    select * from {{ ref('stg__invoice_header') }}
 ),
 
 detail as (
-    select * from {{ ref('stg_invoice_detail') }}
+    select * from {{ ref('stg__invoice_detail') }}
 )
 
 select
