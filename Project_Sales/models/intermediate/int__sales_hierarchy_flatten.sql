@@ -21,8 +21,6 @@ select
     -- 3. Cấp Giám đốc vùng (Regional Director) - Áp dụng Override logic
     coalesce(override.rd, base.regional_director) as regional_director,
 
-    -- 4. Giữ lại thông tin gốc để phục vụ đối soát (Audit Trail)
-    base.regional_director as original_regional_director,
 
     -- Cờ đánh dấu nhân viên này có bị ghi đè cấu trúc quản lý hay không
     case 

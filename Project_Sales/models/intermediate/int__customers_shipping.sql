@@ -1,3 +1,4 @@
+-- No need this model (Optional)
 {{ config(
     materialized='view'
 ) }}
@@ -17,7 +18,6 @@ select
     
     -- 2. Đổi tên cột name để tránh xung đột
     customers.name as customer_name,
-    ship_to.name as ship_to_name,
     customers.channel,
 
     -- 3. Địa chỉ thanh toán / Đăng ký kinh doanh (Billing Address - Từ Customer)
