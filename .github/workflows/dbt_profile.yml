@@ -1,6 +1,5 @@
 name: dbt CI/CD Pipeline
 
-# Định nghĩa các sự kiện kích hoạt Pipeline
 on:
   pull_request:
     branches: [ main ]
@@ -13,7 +12,6 @@ jobs:
   dbt_transformation:
     runs-on: ubuntu-latest
 
-    # Truyền Secrets từ GitHub Settings vào Environment Variables của Runner
     env:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
       DATABRICKS_HTTP_PATH: ${{ secrets.DATABRICKS_HTTP_PATH }}
@@ -22,39 +20,45 @@ jobs:
       DATABRICKS_TOKEN_PROD: ${{ secrets.DATABRICKS_TOKEN_PROD }}
 
     steps:
-      # 1. Checkout source code từ GitHub về máy ảo
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # 2. Cài đặt môi trường Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      # 3. Cài đặt dbt-databricks
       - name: Install dbt dependencies
         run: |
           python -m pip install --upgrade pip
           pip install dbt-databricks
 
-      # 4. TRƯỜNG HỢP 1: Chạy CI lên DEV Schema khi tạo/update Pull Request
+      # BƯỚC QUAN TRỌNG: Copy profiles.yml vào đúng nơi dbt mặc định tìm kiếm (~/.dbt/profiles.yml)
+      - name: Setup dbt profiles directory
+        run: |
+          mkdir -p ~/.dbt
+          cp ./Project_Sales/profiles.yml ~/.dbt/profiles.yml
+
+      # 1. Step cho DEV (Pull Request)
       - name: Run dbt for DEV (Pull Request)
         if: github.event_name == 'pull_request'
+        working-directory: ./Project_Sales
         run: |
           dbt deps
           dbt build --target dev
 
-      # 5. TRƯỜNG HỢP 2: Chạy CD lên UAT Schema khi Merge code vào nhánh main
+      # 2. Step cho UAT (Push to Main)
       - name: Run dbt for UAT (Push to Main)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        working-directory: ./Project_Sales
         run: |
           dbt deps
           dbt build --target uat
 
-      # 6. TRƯỜNG HỢP 3: Chạy CD lên PROD Schema khi gắn Git Tag (Ví dụ: v1.0.0)
+      # 3. Step cho PROD (Git Tag)
       - name: Run dbt for PROD (Git Tag)
         if: startsWith(github.ref, 'refs/tags/')
+        working-directory: ./Project_Sales
         run: |
           dbt deps
           dbt build --target prod
