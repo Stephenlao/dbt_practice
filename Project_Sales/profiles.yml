@@ -1,0 +1,29 @@
+Project_Sales:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      catalog: dbt_practice_dev
+      schema: default
+      host: "{{ env_var('DATABRICKS_HOST') }}"
+      http_path: "{{ env_var('DATABRICKS_HTTP_PATH') }}"
+      token: "{{ env_var('DATABRICKS_TOKEN_PROJ_1') }}"
+      threads: 1
+
+    uat:
+      type: databricks
+      catalog: dbt_practice_uat
+      schema: default
+      host: "{{ env_var('DATABRICKS_HOST') }}"
+      http_path: "{{ env_var('DATABRICKS_HTTP_PATH') }}"
+      token: "{{ env_var('DATABRICKS_TOKEN_UAT') }}"
+      threads: 4
+
+    prod:
+      type: databricks
+      catalog: dbt_practice_prod
+      schema: default
+      host: "{{ env_var('DATABRICKS_HOST') }}"
+      http_path: "{{ env_var('DATABRICKS_HTTP_PATH') }}"
+      token: "{{ env_var('DATABRICKS_TOKEN_PROD') }}"
+      threads: 8
