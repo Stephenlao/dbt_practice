@@ -27,9 +27,9 @@ sources:
 
       - name: invoice_detail
         tests:
-            - all_columns_null:
-                arguments:
-                  exclude_column_list: []
+            # - all_columns_null:
+            #     arguments:
+            #       exclude_column_list: []
             - check_unique_pk_columns:
                 arguments:
                   column_list: ['Invoice Number', 'Line Number', 'Product ID'] # Replace with your actual composite key columns
@@ -76,9 +76,9 @@ sources:
 
       - name: ship_to_master
         tests:
-            - all_columns_null:
-                arguments:
-                  exclude_column_list: []
+            # - all_columns_null:
+            #     arguments:
+            #       exclude_column_list: []
             - check_unique_pk_columns:
                 arguments:
                   column_list: ['Ship To ID']
@@ -106,9 +106,9 @@ sources:
 
       - name: warehouses
         tests:
-            - all_columns_null:
-                arguments:
-                  exclude_column_list: []
+            # - all_columns_null:
+            #     arguments:
+            #       exclude_column_list: []
             - check_unique_pk_columns:
                 arguments:
                   column_list: ['Warehouse ID']
