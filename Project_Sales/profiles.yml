@@ -7,7 +7,7 @@ Project_Sales:
       schema: default
       host: "{{ env_var('DATABRICKS_HOST') }}"
       http_path: "{{ env_var('DATABRICKS_HTTP_PATH') }}"
-      token: "{{ env_var('DATABRICKS_TOKEN_PROJ_1') }}"
+      token: "{{ env_var('DATABRICKS_TOKEN_DEV') }}"
       threads: 1
 
     uat:
