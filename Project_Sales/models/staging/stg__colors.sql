@@ -1,3 +1,4 @@
+-- Color staging layer
 with raw_data as 
 (
     select * from {{ source('Project_Sales', 'colors') }}
